@@ -1,8 +1,19 @@
 package Arrays.FAQs_Medium;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
-public class SpiralMatrix {
+public class PrintSpiralMatrix {
+    public static void main(String[] args) {
+        PrintSpiralMatrix spiralMatrix = new PrintSpiralMatrix();
+        int[][] matrix = new int[][]{
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
+        };
+        System.out.println(spiralMatrix.spiralOrder(matrix));
+
+    }
     public List<Integer> spiralOrder(int[][] matrix) {
         int n = matrix.length;
         int m = matrix[0].length;
@@ -42,14 +53,5 @@ public class SpiralMatrix {
 
         return list;
     }
-    public static void main(String[] args) {
-        SpiralMatrix spiralMatrix = new SpiralMatrix();
-        int[][] matrix = new int[][]{
-                {1,2,3},
-                {4,5,6},
-                {7,8,9}
-        };
-        System.out.println(spiralMatrix.spiralOrder(matrix));
-
-    }
+    
 }

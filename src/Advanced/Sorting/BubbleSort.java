@@ -6,13 +6,12 @@ import java.util.Arrays;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        BubbleSort bubbleSort = new BubbleSort();
         int[] nums = new int[]{7,4,1,5,3};
         System.out.println(Arrays.toString(nums));
-        System.out.println(Arrays.toString(bubbleSort.bubbleSort(nums)));
+        System.out.println(Arrays.toString(bubbleSort(nums)));
     }
 
-    private int[] bubbleSort(int[] nums) {
+    public static int[] bubbleSort(int[] nums) {
         int n = nums.length;
         int cnt = 0;
         for(int i = 0; i < n; i++) {

@@ -3,12 +3,17 @@ package Sorting;
 import java.util.Arrays;
 
 public class QuickSort {
-    public int[] quickSort(int[] nums) {
+    public static void main(String[] args) {
+        int[] arr = {7, 4, 1, 5, 3};
+        System.out.println("After Quick Sort: " + Arrays.toString(quickSort(arr)));
+    }
+
+    public static int[] quickSort(int[] nums) {
         qsHelper(nums, 0, nums.length - 1);
         return nums;
     }
 
-    public void qsHelper(int[] nums, int low, int high) {
+    public static void qsHelper(int[] nums, int low, int high) {
         if(low < high) {
             int partitionIdx = partition(nums, low, high);
             qsHelper(nums, low, partitionIdx-1);
@@ -16,7 +21,7 @@ public class QuickSort {
         }
     }
 
-    public int partition(int[] nums, int low, int high) {
+    public static int partition(int[] nums, int low, int high) {
         int pivot = nums[low];
         int i = low;
         int j = high;
@@ -32,14 +37,9 @@ public class QuickSort {
         return j;
     }
 
-    public void swap(int[] nums, int i, int j) {
+    public static void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        QuickSort quickSort = new QuickSort();
-        System.out.println("After Quick Sort: " + Arrays.toString(quickSort.quickSort(new int[]{7, 4, 1, 5, 3})));
     }
 }

@@ -6,14 +6,13 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        InsertionSort insertionSort = new InsertionSort();
         int[] nums = new int[]{7,4,1,5,3};
         System.out.println(Arrays.toString(nums));
-        System.out.println(Arrays.toString(insertionSort.insertionSort(nums)));
+        System.out.println(Arrays.toString(insertionSort(nums)));
     }
 
 
-    private int[] insertionSort(int[] nums) {
+    public static int[] insertionSort(int[] nums) {
         int n = nums.length;
         for(int i = 1; i < n; i++) {
             int key = nums[i];
