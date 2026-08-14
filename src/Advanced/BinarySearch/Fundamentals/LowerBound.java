@@ -9,25 +9,27 @@ If no such index is found, return the size of the array.
  */
 public class LowerBound {
     public static void main(String[] args) {
-        LowerBound lowerBound = new LowerBound();
-
-        int[] nums = new int[]{3,5,8,15,19};
-        System.out.println(lowerBound.lowerBound(nums, 9));
+        int[] nums1 = {1, 2, 2, 3}, 
+              nums2 = {3, 5, 8, 15, 19};
+        int x1 = 2, x2 = 9;
+        System.out.println(lowerBound(nums1, x1));
+        System.out.println(lowerBound(nums2, x2));
     }
 
-    private int lowerBound(int[] nums, int k) {
+    public static int lowerBound(int[] nums, int x) {
         int low = 0;
         int high = nums.length-1;
-        int ans = high;
+        
         while(low <= high) {
-            int mid = low + (high -low) / 2;
-            if(nums[mid] >= k) {
+            int mid = low + (high - low) / 2;
+
+            if(nums[mid] >= x) {
                 high = mid - 1;
-                ans = mid;
+            } else {
+                low = mid + 1;
             }
-            else low = mid + 1;
         }
 
-        return ans;
+        return low;
     }
 }
