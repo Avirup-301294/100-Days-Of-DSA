@@ -1,7 +1,16 @@
 package BinarySearch.LogicBuilding;
 
 public class SingleElementInSortedArray {
-    public int singleElementInSortedArray(int[] nums) {
+    public static void main(String[] args) {
+        int[] nums1 = new int[]{1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6},
+              nums2 = new int[]{1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7},
+              nums3 = new int[]{1, 1, 3, 5, 5};
+        System.out.println(singleElementInSortedArray(nums1));
+        System.out.println(singleElementInSortedArray(nums2));
+        System.out.println(singleElementInSortedArray(nums3));
+    }
+
+    public static int singleElementInSortedArray(int[] nums) {
         int n = nums.length;
         int low = 1;
         int high = n-2;
@@ -18,8 +27,7 @@ public class SingleElementInSortedArray {
             }
 
             if((mid % 2 == 1 && nums[mid] == nums[mid-1]) ||
-                    (mid % 2 == 0 && nums[mid] == nums[mid+1])) {
-                // single element is on the right side
+                (mid % 2 == 0 && nums[mid] == nums[mid+1])) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
@@ -27,19 +35,5 @@ public class SingleElementInSortedArray {
         }
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        SingleElementInSortedArray singleElementInSortedArray
-                = new SingleElementInSortedArray();
-
-        int[] nums1 = new int[]{1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6};
-        System.out.println(singleElementInSortedArray.singleElementInSortedArray(nums1));
-
-        int[] nums2 = new int[]{1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7};
-        System.out.println(singleElementInSortedArray.singleElementInSortedArray(nums2));
-
-        int[] nums3 = new int[]{1, 1, 3, 5, 5};
-        System.out.println(singleElementInSortedArray.singleElementInSortedArray(nums3));
     }
 }
