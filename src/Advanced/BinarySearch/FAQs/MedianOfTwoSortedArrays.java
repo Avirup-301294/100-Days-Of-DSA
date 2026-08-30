@@ -30,8 +30,10 @@ public class MedianOfTwoSortedArrays {
     }
 
     public static double median(int[] arr1, int[] arr2) {
-        int n = arr1.length, m = arr2.length;
-        if (n > m) return median(arr2, arr1);
+        int n = arr1.length, 
+            m = arr2.length;
+        if (n > m) 
+            return median(arr2, arr1);
 
         int totalLen = n + m;
         int leftHalfLen = (totalLen + 1) / 2;
