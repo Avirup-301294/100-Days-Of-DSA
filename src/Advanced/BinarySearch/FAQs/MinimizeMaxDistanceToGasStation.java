@@ -41,10 +41,9 @@ public class MinimizeMaxDistanceToGasStation {
         // System.out.println(minimiseMaxDistanceOptimal(arr2, k2));
     }
 
-    private static char[] minimiseMaxDistanceOptimal(int[] arr2, int k2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'minimiseMaxDistanceOptimal'");
-    }
+    // private static char[] minimiseMaxDistanceOptimal(int[] arr2, int k2) {
+        
+    // }
 
     public static double minimiseMaxDistanceBetter(int[] arr, int k) {
         int n = arr.length;
