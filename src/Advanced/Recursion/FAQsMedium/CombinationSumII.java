@@ -1,8 +1,5 @@
 package Recursion.FAQsMedium;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*  
     Problem: Combination Sum II
     Given collection of candidate numbers (candidates) and a integer target.
@@ -59,15 +56,13 @@ public class CombinationSumII {
 
         Arrays.sort(candidates);
 
-        func(0, candidates, target);
+        // func(0, candidates, target);
+        func2(0, candidates, target);
 
         return ans;
     }
 
-    private static void func(
-            int index,
-            int[] candidates,
-            int target) {
+    private static void func(int index, int[] candidates, int target) {
 
         // Target reached
         if (target == 0) {
@@ -100,6 +95,28 @@ public class CombinationSumII {
 
             // Backtrack
             current.remove(current.size() - 1);
+        }
+    }
+
+
+    private static void func2(int ind, int[] candidates, int target) {
+        // If the sum is zero, add the current combination to the result
+        if (target == 0) {
+            ans.add(new ArrayList<>(current));
+            return;
+        }
+
+        if (target < 0 || ind == candidates.length) return; 
+
+        current.add(candidates[ind]);
+        func2(ind + 1, candidates, target - candidates[ind]);
+
+        current.remove(current.size() - 1);
+        for(int i = ind + 1; i < candidates.length; i++) {
+            if(candidates[i] != candidates[ind]) {
+                func2(i, candidates, target);
+                break;
+            }
         }
     }
 }

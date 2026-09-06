@@ -27,15 +27,15 @@ public class GenerateParenthesis {
 
     public static List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
-        generate("", n, 0, result);
+        // generate("", n, 0, result);
+        generateOptimal(0, 0, n, "", result);
         return result;
     }
 
 
     public static void generate(String curr, int n, int length, List<String> result) {
         if (length == 2 * n) {
-            if (isValid(curr))
-                result.add(curr);
+            if (isValid(curr)) result.add(curr);
             return;
         }
 
@@ -58,5 +58,17 @@ public class GenerateParenthesis {
                 return false;
         }
         return sum == 0;
+    }
+
+
+    private static void generateOptimal(
+        int open, int close, int n, String current, List<String> result) {
+        if (open == close && open + close == 2 * n) {
+            result.add(current);
+            return;
+        }
+
+        if (open < n) generateOptimal(open + 1, close, n, current + '(', result);
+        if (close < open) generateOptimal(open, close + 1, n, current + ')', result);
     }
 }
