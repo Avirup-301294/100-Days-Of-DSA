@@ -1,4 +1,4 @@
-package Recursion.FAQsMedium;
+package Recursion.FAQs_Medium;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Recursion.FAQsMedium;
+package Recursion.FAQs_Medium;
 
 /*  
     Problem: Combination Sum II
