@@ -1,15 +1,15 @@
 package LinkedList.LogicBuilding;
 
-import LinkedList.Fundamentals.SinglyLL.Node;
+import static LinkedList.Fundamentals.SinglyLL.utils.ConvertArrToLinkedList.convertArrToLL;
 
-import static LinkedList.Fundamentals.SinglyLL.ConvertArrToLinkedList.convertArrToLL;
+import LinkedList.Fundamentals.SinglyLL.utils.ListNode;
 
 public class SortLL {
 
-    public Node sortLL(Node head) {
+    public ListNode sortLL(ListNode head) {
         // Initialize counts
         int c0 = 0, c1 = 0, c2 = 0;
-        Node temp = head;
+        ListNode temp = head;
 
         /* Count the number of 0s,
            1s, and 2s in the list */
@@ -26,7 +26,7 @@ public class SortLL {
         temp = head;
 
         /* Reassign values to
-           the nodes based on
+           the ListNodes based on
            the counts */
         while (temp != null) {
             if (c0 > 0) {
@@ -50,15 +50,15 @@ public class SortLL {
         SortLL sortLL = new SortLL();
 
         int[] arr = {1, 0, 2, 0 , 1};
-        Node head = convertArrToLL(arr);
-        Node temp = head;
+        ListNode head = convertArrToLL(arr);
+        ListNode temp = head;
         while(temp != null) {
             System.out.print(temp.data+ " ");
             temp = temp.next;
         }
 
         System.out.println();
-        Node sortLL1 = sortLL.sortLL(head);
+        ListNode sortLL1 = sortLL.sortLL(head);
 
         while(sortLL1 != null) {
             System.out.print(sortLL1.data + " ");

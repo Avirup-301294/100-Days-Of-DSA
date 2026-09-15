@@ -1,8 +1,8 @@
 package LinkedList.LogicBuilding;
 
-import LinkedList.Fundamentals.SinglyLL.Node;
+import static LinkedList.Fundamentals.SinglyLL.utils.ConvertArrToLinkedList.convertArrToLL;
 
-import static LinkedList.Fundamentals.SinglyLL.ConvertArrToLinkedList.convertArrToLL;
+import LinkedList.Fundamentals.SinglyLL.utils.ListNode;
 
 public class SegregateOddEven {
 
@@ -10,9 +10,9 @@ public class SegregateOddEven {
         SegregateOddEven segregateOddEven = new SegregateOddEven();
 
         int[] arr = {1,2,3,4,5};
-        Node head = convertArrToLL(arr);
+        ListNode head = convertArrToLL(arr);
 
-        Node oddEvenList = segregateOddEven.oddEvenList(head);
+        ListNode oddEvenList = segregateOddEven.oddEvenList(head);
 
         while(oddEvenList != null) {
             System.out.print(oddEvenList.data + " ");
@@ -20,12 +20,12 @@ public class SegregateOddEven {
         }
     }
 
-    public Node oddEvenList(Node head) {
+    public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null)
             return head;
-        Node ptrOdd = head;
-        Node ptrEven = head.next;
-        Node evenHead = head.next;
+        ListNode ptrOdd = head;
+        ListNode ptrEven = head.next;
+        ListNode evenHead = head.next;
         while(ptrEven != null && ptrEven.next != null) {
             ptrOdd.next = ptrOdd.next.next;
             ptrEven.next = ptrEven.next.next;
