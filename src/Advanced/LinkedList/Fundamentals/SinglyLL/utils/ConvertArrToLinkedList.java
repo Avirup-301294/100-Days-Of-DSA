@@ -2,14 +2,19 @@ package LinkedList.Fundamentals.SinglyLL.utils;
 
 
 public class ConvertArrToLinkedList {
-    public static ListNode convertArrToLL(int[] arr) {
-        ListNode head = null;
-        // ListNode head = new ListNode(arr[0]);
-        if(arr.length > 0) {
-            head = new ListNode(arr[0]);
-        } else {
-            return null;
+    public static void main(String[] args) {
+        int[] arr = {};
+        // int[] arr = {12,5,6,8};
+        ListNode temp = convertArrToLL(arr);
+        while(temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
         }
+    }
+
+    public static ListNode convertArrToLL(int[] arr) {        
+        if(arr == null || arr.length == 0) return null;
+        ListNode head = new ListNode(arr[0]);
         ListNode ptr = head;
 
         for (int i = 1; i < arr.length; i++) {
@@ -19,15 +24,5 @@ public class ConvertArrToLinkedList {
         }
 
         return head;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {};
-        // int[] arr = {12,5,6,8};
-        ListNode temp = convertArrToLL(arr);
-        while(temp != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
     }
 }

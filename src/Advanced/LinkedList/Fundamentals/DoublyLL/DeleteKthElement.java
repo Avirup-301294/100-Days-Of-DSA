@@ -1,72 +1,118 @@
 package LinkedList.Fundamentals.DoublyLL;
 
-import LinkedList.Fundamentals.DoublyLL.ConvertArrToDoublyLL;
-import LinkedList.Fundamentals.DoublyLL.Node;
+import LinkedList.Fundamentals.DoublyLL.utils.*;
 
+/*
+    Problem:Delete Kth Element of Doubly Linked List
+    Given the head of a doubly linked list and an integer k, remove the node at the kth position of the linked list and return the head of the modified list.
+    Example 1
+    Input: head = [2, 5, 7, 9], k = 2
+    Output: head = [2, 7, 9]
+    Explanation: The node with value 5 was removed.
+
+    Example 2
+    Input: head = [2, 5, 7], k = 1
+    Output: head = [5, 7]
+    Explanation: The node with value 2 was removed, note that the head was modified.
+*/
 public class DeleteKthElement {
     public static void main(String[] args) {
-        ConvertArrToDoublyLL convertArrToDoublyLL = new ConvertArrToDoublyLL();
-        Node node = convertArrToDoublyLL.convertArrToDoublyLL(new int[]{2, 5, 6, 8, 9, 13});
-        System.out.println("Before kth element deletion");
-        print(node);
+        int[] arr = {2, 5, 7, 9};
+        ListNode head = ConvertArrToDoublyLL.convertArrToDoublyLL(arr);
 
-        System.out.println("\nAfter kth element deletion");
-        Node deleteKthElement = deleteKthElement(node, 7); // delete 4th element
-        print(deleteKthElement);
+        System.out.println("Before head deletion");
+        TraverseDLL.printDLL(head);
+
+        System.out.println("\nAfter head deletion");
+        ListNode deleteKthElement = deleteKthElement(head,2);
+        TraverseDLL.printDLL(deleteKthElement);
+
+        System.out.println("\n*************************");
+
+        int[] arr2 = new int[]{2, 5, 7};
+        ListNode head2 = ConvertArrToDoublyLL.convertArrToDoublyLL(arr2);
+
+        System.out.println("Before head deletion");
+        TraverseDLL.printDLL(head2);
+
+        System.out.println("\nAfter head deletion");
+        ListNode deleteKthElement2 = deleteKthElement(head2,1);
+        TraverseDLL.printDLL(deleteKthElement2);
     }
 
-    private static void print(Node head) {
-        while(head != null) {
-            System.out.print(head.data + " ");
-            head = head.next;
-        }
-    }
+    // public static ListNode deleteKthElement(ListNode head, int k) {
+    //     if(head == null) return null;
 
-    static Node deleteKthElement(Node head, int k) {
-        if(head == null) return null;
+    //     if(k == 1) {
+    //         head = head.next;
+    //         head.prev = null;
+    //         return head;
+    //     }
 
-        int size = sizeOfLinkedList(head);
-        if (k > size || k <= 0) return head; // invalid k
+    //     ListNode temp = head;
+    //     ListNode prev = head;
 
-        // Case 1: delete head
-        if (k == 1) {
-            Node newHead = head.next;
-            if (newHead != null) {
-                newHead.back = null;
-            }
-            return newHead;
-        }
+    //     for(int i = 1; i <= k; i++) {
+    //         temp = temp.next;
+    //     }
 
-        Node temp = head;
-        for (int i = 1; i < k; i++) {
-            temp = temp.next;
-        }
 
-        // Case 2: delete middle or last
-        Node prev = temp.back;
-        Node next = temp.next;
+    //     while(prev.next.next != temp) {
+    //         prev = prev.next;
+    //     }
 
-        if (prev != null) {
-            prev.next = next;
-        }
-        if (next != null) {
-            next.back = prev;
-        }
+    //     prev.next = temp;
+    //     temp.prev = prev;
 
-        // Clear temp
-        temp.next = null;
-        temp.back = null;
+    //     return head;
 
-        return head;
-    }
+    // }
 
-    private static int sizeOfLinkedList(Node head) {
+    public static ListNode deleteKthElement(ListNode head, int k) {
+        // If the list is empty, return null
+        if (head == null) 
+            return null;
+    
         int count = 0;
-        while(head != null) {
-            head = head.next;
+        ListNode kNode = head;
+
+        // Traverse the list
+        while (kNode != null) {
             count++;
+            if (count == k) break;
+            kNode = kNode.next;
         }
 
-        return count;
+        // If k is larger than the list size
+        if (kNode == null) return head; 
+        
+        // Update the pointers
+        ListNode prev = kNode.prev;
+        ListNode front = kNode.next;
+
+        // If node to be deleted is the only node in the list
+        if (prev == null && front == null) {
+            return null;
+        }
+        
+        // If node to be deleted is head of the list
+        else if (prev == null) {
+            head = front;
+            front.prev = null;
+        }
+        
+        // If node to be deleted is tail of the list
+        else if (front == null) {
+            prev.next = null;
+        }
+        
+        // If node to be deleted is in the middle of the list
+        else {
+            prev.next = front;
+            front.prev = prev;
+        }
+
+        // Return modified list head
+        return head;
     }
 }

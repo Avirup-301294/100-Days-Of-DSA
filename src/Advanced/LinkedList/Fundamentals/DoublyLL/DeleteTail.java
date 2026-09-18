@@ -1,36 +1,46 @@
 package LinkedList.Fundamentals.DoublyLL;
 
+import LinkedList.Fundamentals.DoublyLL.utils.*;
 
+/*
+    Problem: Delete Tail of Doubly Linked List
+    Given the head of a doubly linked list, remove the node at the tail of the linked list and return the head of the modified list.
+    The tail is the last node of the linked list.
+
+    Example 1
+    Input: head = [1, 2, 3]
+    Output: head = [1, 2]
+    Explanation: The node with value 3 was removed.
+    Example 2
+    Input: head = [7]
+    Output: head = [ ]
+    Explanation: Note that the head has null value after the removal.
+*/
 public class DeleteTail {
     public static void main(String[] args) {
-        ConvertArrToDoublyLL convertArrToDoublyLL = new ConvertArrToDoublyLL();
-        Node node = convertArrToDoublyLL.convertArrToDoublyLL(new int[]{2,5,6,8});
-        System.out.println("Before head deletion");
-        print(node);
+        int[] arr = {2,5,6,8};
+        ListNode head = ConvertArrToDoublyLL.convertArrToDoublyLL(arr);
 
-        System.out.println("\nAfter tail deletion");
-        Node deleteTail = deleteTail(node);
-        print(deleteTail);
+        System.out.println("Before Tail deletion");
+        TraverseDLL.printDLL(head);
+
+        System.out.println("\nAfter Tail deletion");
+        ListNode deleteTail = deleteTail(head);
+        TraverseDLL.printDLL(deleteTail);
     }
 
-    private static void print(Node head) {
-        while(head != null) {
-            System.out.print(head.data + " ");
-            head = head.next;
-        }
-    }
-
-    static Node deleteTail(Node head) {
+    static ListNode deleteTail(ListNode head) {
         if(head == null || head.next == null) return null;
-        Node tail = head;
+
+        ListNode tail = head;
         while(tail.next != null) {
             tail = tail.next;
         }
 
-        Node prev = tail.back;
-        prev.next = null;
-        tail.back = null;
-
+        // At this point tail is pointing to the last node
+        ListNode newTail = tail.prev;
+        newTail.next = null;
+        tail.prev = null;
         return head;
     }
 
