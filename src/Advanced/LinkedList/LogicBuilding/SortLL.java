@@ -1,11 +1,36 @@
 package LinkedList.LogicBuilding;
 
-import static LinkedList.Fundamentals.SinglyLL.utils.ConvertArrToLinkedList.convertArrToLL;
-import LinkedList.Fundamentals.SinglyLL.utils.ListNode;
+import LinkedList.Fundamentals.SinglyLL.utils.*;
+/*
+    Problem: Sort a Linked List of 0's 1's and 2's
 
+    Given the head of a singly linked list consisting of only 0, 1 or 2.
+    Sort the given linked list and return the head of the modified list.
+    Do it in-place by changing the links between the nodes without creating new nodes.
+
+    Example 1:
+    Input: linkedList = [1, 0, 2, 0 , 1]
+    Output: [0, 0, 1, 1, 2]
+    Explanation: The values after sorting are [0, 0, 1, 1, 2].
+
+    Example 2:
+    Input: linkedList = [1, 1, 1, 0]
+    Output: [0, 1, 1, 1]
+    Explanation: The values after sorting are [0, 1, 1, 1].
+*/
 public class SortLL {
     public static void main(String[] args) {
-        
+        // Input: linkedList = [1, 0, 2, 0 , 1]
+        int[] linkedList1 = {1, 0, 2, 0 , 1};
+        ListNode head1 = ConvertArrToLinkedList.convertArrToLL(linkedList1);
+        head1 = sortLL(head1);
+        System.out.println(Traversal.LLTraversal(head1));
+
+        // Input: linkedList = [1, 1, 1, 0]
+        int[] linkedList2 = {1, 1, 1, 0};
+        ListNode head2 = ConvertArrToLinkedList.convertArrToLL(linkedList2);
+        head2 = sortLL(head2);
+        System.out.println(Traversal.LLTraversal(head2));
     }
 
     public static ListNode sortLL(ListNode head) {
