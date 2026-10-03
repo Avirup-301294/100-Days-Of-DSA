@@ -1,8 +1,7 @@
-package LinkedList.Fundamentals.SinglyLL;
+package LinkedList.Fundamentals.SinglyLL.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import LinkedList.Fundamentals.SinglyLL.utils.*;
 
 /*
     Problem: Traversal in Linked List

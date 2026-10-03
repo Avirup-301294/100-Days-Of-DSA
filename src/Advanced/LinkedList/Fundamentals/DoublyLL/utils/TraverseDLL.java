@@ -1,7 +1,4 @@
-package LinkedList.Fundamentals.DoublyLL;
-
-import LinkedList.Fundamentals.DoublyLL.utils.ConvertArrToDoublyLL;
-import LinkedList.Fundamentals.DoublyLL.utils.ListNode;
+package LinkedList.Fundamentals.DoublyLL.utils;
 
 public class TraverseDLL {
 

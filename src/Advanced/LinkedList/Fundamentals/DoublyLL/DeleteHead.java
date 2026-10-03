@@ -21,10 +21,10 @@ public class DeleteHead {
         int[] arr = {2,5,6,8};
         ListNode head = ConvertArrToDoublyLL.convertArrToDoublyLL(arr);
 
-        System.out.println("Before head deletion");
+        System.out.println("Before deletion");
         TraverseDLL.printDLL(head);
 
-        System.out.println("\nAfter head deletion");
+        System.out.println("\nAfter deletion");
         ListNode deleteHead = deleteHead(head);
         TraverseDLL.printDLL(deleteHead);
     }

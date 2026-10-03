@@ -7,10 +7,10 @@ public class InsertBeforeHead {
         int[] arr = {1, 2, 3};
         ListNode head = ConvertArrToDoublyLL.convertArrToDoublyLL(arr);
 
-        System.out.println("Before head deletion");
+        System.out.println("Before insertion");
         TraverseDLL.printDLL(head);
 
-        System.out.println("\nAfter head deletion");
+        System.out.println("\nAfter insertion");
         ListNode insertBeforeHead = insertBeforeHead(head, 3);
         TraverseDLL.printDLL(insertBeforeHead);
 
@@ -19,10 +19,10 @@ public class InsertBeforeHead {
         int[] arr2 = {5};
         ListNode head2 = ConvertArrToDoublyLL.convertArrToDoublyLL(arr2);
 
-        System.out.println("Before head deletion");
+        System.out.println("Before insertion");
         TraverseDLL.printDLL(head2);
 
-        System.out.println("\nAfter head deletion");
+        System.out.println("\nAfter insertion");
         ListNode insertBeforeHead2 = insertBeforeHead(head2, 7);
         TraverseDLL.printDLL(insertBeforeHead2);
     }

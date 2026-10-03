@@ -29,16 +29,13 @@ public class ThreeSum {
     //                 temp.add(nums[i]);
     //                 temp.add(nums[j]);
     //                 temp.add(third);
-
     //                 Collections.sort(temp);
     //                 triplets.add(temp);
     //             }
-
     //             hs.add(nums[j]);
     //         }
     //     }
     //     List<List<Integer>> ls = new ArrayList<>(triplets);
-        
     //     return ls;
     // }
 

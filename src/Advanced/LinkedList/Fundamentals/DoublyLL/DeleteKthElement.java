@@ -20,10 +20,10 @@ public class DeleteKthElement {
         int[] arr = {2, 5, 7, 9};
         ListNode head = ConvertArrToDoublyLL.convertArrToDoublyLL(arr);
 
-        System.out.println("Before head deletion");
+        System.out.println("Before deletion");
         TraverseDLL.printDLL(head);
 
-        System.out.println("\nAfter head deletion");
+        System.out.println("\nAfter deletion");
         ListNode deleteKthElement = deleteKthElement(head,2);
         TraverseDLL.printDLL(deleteKthElement);
 
@@ -32,10 +32,10 @@ public class DeleteKthElement {
         int[] arr2 = new int[]{2, 5, 7};
         ListNode head2 = ConvertArrToDoublyLL.convertArrToDoublyLL(arr2);
 
-        System.out.println("Before head deletion");
+        System.out.println("Before deletion");
         TraverseDLL.printDLL(head2);
 
-        System.out.println("\nAfter head deletion");
+        System.out.println("\nAfter deletion");
         ListNode deleteKthElement2 = deleteKthElement(head2,1);
         TraverseDLL.printDLL(deleteKthElement2);
     }
